@@ -3,12 +3,12 @@ const router = express.Router()
 const { 
     getGoals,
     setGoal,
-    updGoal,
-    delGoal,
+    updateGoal,
+    deleteGoal,
 } = require('../controllers/goalController')
 
 router.route('/').get(getGoals).post(setGoal)
-router.route('/:id').delete(delGoal).put(updGoal)
+router.route('/:id').delete(deleteGoal).put(updateGoal)
 
 /* //Read
 router.get('/', (req, res) => {
