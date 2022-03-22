@@ -13,8 +13,9 @@ app.use(express.json())
 app.use(express.urlencoded({extened: false}))
 
 const goalRoutes = require('./routes/goalRoutes')
-
+const userRoutes = require('./routes/userRoutes')
 app.use('/api/goals', goalRoutes)
+app.use('/api/users', userRoutes)
 
 app.use(errorHandler)
 
