@@ -13,6 +13,7 @@ function GoalItem({ goal }) {
             </div>
             <h2>{goal.text}</h2>
             <button onClick={() => dispatch(deleteGoal(goal._id))} className="close">X</button>
+            <button>Edit</button>
         </div>
     )
 }
