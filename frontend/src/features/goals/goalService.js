@@ -27,34 +27,38 @@ const getGoals = async (token) => {
 
     return response.data
 }
-/*
-// Update Goal
-const updateGoal = async (goalData, token) => {
+
+// Update goal
+const updateGoal= async (goalId, goalData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.put(API_URL + "/" + goalId, goalData, config)
+
+  return response.data
+}
+
+// Delete Goal
+const deleteGoal = async (goalId, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
-        }
+        },
     }
 
-    const response = await axios.put(API_URL + ':id', goalData, config)
-
-    if (response.data) {
-        localStorage.setItem('goal', JSON.stringify(response.data))
-    }
+    const response = await axios.delete(API_URL + goalId, config)
 
     return response.data
 }
 
-// Delete Goal
-const del = () => {
-    localStorage.removeItem('goal')
-}*/
-
 const goalService = {
     createGoal,
     getGoals,
-    //updateGoal,
-    //deleteGoal,
+    updateGoal,
+    deleteGoal,
 }
 
 export default goalService 
