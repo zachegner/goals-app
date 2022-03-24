@@ -13,11 +13,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extened: false }))
 
-const goalRoutes = require('./routes/goalRoutes')
-const userRoutes = require('./routes/userRoutes')
-const req = require('express/lib/request')
-app.use('/api/goals', goalRoutes)
-app.use('/api/users', userRoutes)
+app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {
@@ -35,3 +32,4 @@ if (process.env.NODE_ENV === 'production') {
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
+
