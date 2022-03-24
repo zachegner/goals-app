@@ -1,14 +1,15 @@
-//const path = require('path')
+const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv').config()
 const colors = require('colors')
 const connectDB = require('./config/db')
-//const port = process.env.PORT
 const { errorHandler } = require('./middleware/errorMiddleware')
 
 connectDB()
 
 const app = express()
+
+app.set('port', (process.env.PORT || 5000))
 
 app.use(express.json())
 app.use(express.urlencoded({ extened: false }))
@@ -31,5 +32,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(errorHandler)
 
-app.listen(port, () => console.log(`Server started on port ${port}`))
+// Start node server
+app.listen(app.get('port'), function() {
+    console.log( 'Node server is running on port ' + app.get( 'port'));
+    });
 
