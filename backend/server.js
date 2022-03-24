@@ -1,4 +1,4 @@
-const path = require('path')
+//const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv').config()
 const colors = require('colors')
@@ -31,5 +31,5 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(errorHandler)
 
-app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}`))
+app.listen(port, () => console.log(`Server started on port ${port}`))
 

@@ -160,6 +160,10 @@ h3 {
   color: #000;
 }
 
+.btn-center {
+  margin: 0 auto;
+}
+
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
