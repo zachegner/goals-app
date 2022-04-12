@@ -1,10 +1,12 @@
 import {useDispatch} from 'react-redux'
-import {deleteGoal} from '../features/goals/goalSlice'
+import {updateGoal, deleteGoal} from '../features/goals/goalSlice'
 
 function GoalItem({ goal }) {
     const dispatch = useDispatch()
 
-    
+    const updateText = () => {
+        goal.text = "Hello"
+    }
 
     return (
         <div className="goal">
@@ -13,7 +15,7 @@ function GoalItem({ goal }) {
             </div>
             <h2>{goal.text}</h2>
             <button onClick={() => dispatch(deleteGoal(goal._id))} className="close">X</button>
-            <button className='btn btn-center btn-reverse '>Edit</button>
+            <button onClick={/* (text) => dispatch(updateGoal(goal._id, text)) */updateText} className='btn btn-center btn-reverse '>Edit</button>
         </div>
     )
 }
